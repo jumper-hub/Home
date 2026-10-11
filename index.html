@@ -1,921 +1,451 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="dark scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUMPER | Visual Producer & Drone Specialist</title>
-    <!-- Tailwind CSS CDN -->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="JUMPER - produção audiovisual para imóveis, pousadas, Airbnb e turismo. Fotografia aérea, vídeos promocionais e captação com alto padrão visual."
+    />
+    <meta name="theme-color" content="#09090b" />
+    <title>JUMPER | Fotografia Aérea & Produção Audiovisual</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            500: '#0066ff',
-                            600: '#0052cc',
-                            900: '#001a4d',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        display: ['Syne', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#f2f7ff',
+                100: '#dfeeff',
+                500: '#4f8cff',
+                600: '#2f6df5',
+                900: '#0b1220',
+              },
+            },
+            boxShadow: {
+              glow: '0 0 30px rgba(79, 140, 255, 0.35)',
+            },
+          },
+        },
+      };
     </script>
-    <!-- FontAwesome Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts: Syne (Headings) & Plus Jakarta Sans (Body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #070709;
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        .font-display {
-            font-family: 'Syne', sans-serif;
-        }
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #09090b;
+        color: #f5f5f5;
+      }
 
-        /* Hero Background with Gradient Vignette like reference */
-        .hero-vignette {
-            background: linear-gradient(90deg, #070709 0%, rgba(7, 7, 9, 0.85) 35%, rgba(7, 7, 9, 0.2) 70%, rgba(7, 7, 9, 0.4) 100%),
-                        linear-gradient(0deg, #070709 0%, rgba(7, 7, 9, 0) 40%);
-        }
+      .hero-bg {
+        background-image: linear-gradient(90deg, rgba(9, 9, 11, 0.92) 0%, rgba(9, 9, 11, 0.75) 35%, rgba(9, 9, 11, 0.3) 100%),
+          url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80');
+        background-size: cover;
+        background-position: center;
+      }
 
-        /* Glassmorphism Editorial FX */
-        .glass-panel {
-            background: rgba(15, 15, 20, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+      .glass {
+        background: rgba(17, 17, 20, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+      }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-card:hover {
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 5px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #070709;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 9999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ffffff;
-        }
-
-        /* Tab Transitions */
-        .tab-content {
-            display: none;
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .tab-content.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .filter-btn.active {
-            background-color: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-            font-weight: 700;
-        }
-
-        /* Infinite Ticker Animation */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: 200%;
-            animation: marquee 28s linear infinite;
-        }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
-
-        /* Scroll Reveal Motion */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .tracking-wide-editorial {
-            letter-spacing: 0.35em;
-        }
+      .section-title {
+        letter-spacing: 0.2em;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
     </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-white selection:text-black">
+  </head>
+  <body class="antialiased">
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-md">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <a href="#top" class="text-lg font-black tracking-[0.35em] text-white">JUMPER</a>
 
-    <!-- Minimalist Navigation Header -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-black/30 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-            <!-- Monogram / Brand Logo -->
-            <a href="#" onclick="switchTab('portfolio')" class="flex items-center gap-3 group">
-                <span class="font-display font-extrabold tracking-[0.25em] text-xl uppercase text-white">JUMPER</span>
-            </a>
+        <nav class="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.2em] text-zinc-300 md:flex">
+          <a href="#servicos" class="transition hover:text-white">Serviços</a>
+          <a href="#portfolio" class="transition hover:text-white">Portfolio</a>
+          <a href="#sobre" class="transition hover:text-white">Sobre</a>
+          <a href="#contato" class="transition hover:text-white">Contato</a>
+        </nav>
 
-            <!-- Desktop Navigation Menu -->
-            <nav class="hidden md:flex items-center space-x-8 text-xs font-light tracking-widest uppercase text-gray-400">
-                <button onclick="switchTab('portfolio')" id="desk-tab-portfolio" class="tab-btn hover:text-white transition-colors text-white font-semibold">Portfólio</button>
-                <button onclick="switchTab('services')" id="desk-tab-services" class="tab-btn hover:text-white transition-colors">Serviços</button>
-                <button onclick="switchTab('about')" id="desk-tab-about" class="tab-btn hover:text-white transition-colors">Sobre & Equipamento</button>
-                <button onclick="switchTab('contact')" id="desk-tab-contact" class="tab-btn hover:text-white transition-colors">Contato</button>
-            </nav>
-
-            <!-- Social Links & Action -->
-            <div class="flex items-center gap-5 text-gray-300 text-sm">
-                <a href="https://instagram.com" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtu.be/PWNALyjmpjs" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
-                <a href="https://wa.me/5584986448097?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="hidden sm:inline-block border border-white/30 hover:border-white text-white text-[11px] font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all hover:bg-white hover:text-black ml-2">
-                    Contato
-                </a>
-            </div>
-        </div>
+        <a
+          href="https://wa.me/5584986448097?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20produção%20audiovisual."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full border border-white/20 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-black transition hover:bg-zinc-200"
+        >
+          Orçamento
+        </a>
+      </div>
     </header>
 
-    <!-- MAIN HERO SECTION -->
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <!-- Hero Background Image with Cinematic Shadow Overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=2000" alt="Cinematic Portrait" class="w-full h-full object-cover object-center filter brightness-90">
-            <div class="absolute inset-0 hero-vignette"></div>
-        </div>
-
-        <!-- Content Overlay -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full py-24 flex flex-col justify-between min-h-[80vh]">
-            <div class="max-w-xl my-auto">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-black/40 backdrop-blur-md mb-6">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-[10px] tracking-widest uppercase font-medium text-gray-300">Disponível para Projetos</span>
-                </div>
-
-                <h1 class="font-display text-5xl md:text-8xl font-extrabold text-white tracking-tight mb-3 uppercase leading-none">
-                    Jumper
-                </h1>
-                <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wide-editorial font-medium mb-8">
-                    FILMMAKER & DRONE PILOT
-                </p>
-
-                <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-10 max-w-md">
-                    Produção audiovisual para <strong class="text-white font-medium">Imobiliárias, Pousadas/Airbnb e Empresas de Turismo</strong>. Fotografia de interiores HDR e captações aéreas 4K de alta estética.
-                </p>
-
-                <div class="flex flex-wrap gap-4 items-center">
-                    <a href="https://wa.me/5584986448097?text=Olá!%20Gostaria%20de%20um%20orçamento%20audiovisual." target="_blank" class="bg-white text-black hover:bg-gray-200 text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-full transition-all transform hover:scale-105 shadow-2xl">
-                        Solicitar Orçamento
-                    </a>
-                    <button onclick="switchTab('portfolio')" class="border border-white/20 hover:border-white text-white text-xs font-medium uppercase tracking-widest px-7 py-4 rounded-full transition-all backdrop-blur-sm">
-                        Ver Portfólio <i class="fas fa-arrow-down ml-2 text-[10px]"></i>
-                    </button>
-                </div>
+    <main id="top">
+      <section class="hero-bg min-h-screen px-6 pb-12 pt-28 lg:px-8">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:pt-10">
+          <div>
+            <div class="mb-6 inline-flex items-center gap-3 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-zinc-200">
+              <span class="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,1)]"></span>
+              Disponível para projetos
             </div>
 
-            <!-- Subtle Bottom Info -->
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between text-[11px] text-gray-500 font-light border-t border-white/10 pt-6 gap-2">
-                <div>© 2026 JUMPER Visuals. Captações Aéreas & Fotografia de Arquitetura.</div>
-                <div class="flex items-center gap-6 text-gray-400 font-medium">
-                    <span><i class="fas fa-check text-emerald-400 mr-1"></i> Imobiliário</span>
-                    <span><i class="fas fa-check text-emerald-400 mr-1"></i> Airbnb & Pousadas</span>
-                    <span><i class="fas fa-check text-emerald-400 mr-1"></i> Turismo</span>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h1 class="max-w-xl text-5xl font-black uppercase leading-[0.9] tracking-[-0.06em] text-white md:text-7xl">
+              Imagens que<br />vendem ideias.
+            </h1>
 
-    <!-- Ticker Banner Minimalist -->
-    <div class="overflow-hidden bg-black border-y border-white/10 py-4 relative z-20">
-        <div class="animate-marquee whitespace-nowrap text-[11px] font-semibold tracking-[0.3em] text-gray-400 uppercase flex gap-12 items-center font-display">
-            <span>TAKES AÉREOS EM 4K HDR</span>
-            <span class="text-white/20">•</span>
-            <span>FOTOGRAFIA ARQUITETÔNICA & INTERIORES</span>
-            <span class="text-white/20">•</span>
-            <span>COLOR GRADING CINEMATOGRÁFICO</span>
-            <span class="text-white/20">•</span>
-            <span>VÍDEOS VERTICAIS DE ALTA RETENÇÃO</span>
-            <span class="text-white/20">•</span>
-            <span>PILOTO DE DRONE CERTIFICADO</span>
-            <span class="text-white/20">•</span>
-            <!-- Loop duplicate -->
-            <span>TAKES AÉREOS EM 4K HDR</span>
-            <span class="text-white/20">•</span>
-            <span>FOTOGRAFIA ARQUITETÔNICA & INTERIORES</span>
-            <span class="text-white/20">•</span>
-            <span>COLOR GRADING CINEMATOGRÁFICO</span>
-            <span class="text-white/20">•</span>
-            <span>VÍDEOS VERTICAIS DE ALTA RETENÇÃO</span>
-            <span class="text-white/20">•</span>
-            <span>PILOTO DE DRONE CERTIFICADO</span>
-        </div>
-    </div>
+            <p class="mt-6 max-w-xl text-sm leading-7 text-zinc-300 md:text-base">
+              Fotografia aérea, vídeos promocionais e captação visual para
+              <span class="font-semibold text-white">imóveis, pousadas, Airbnb e experiências de turismo</span>.
+              A ideia é criar conteúdo que eleve o valor percebido do seu negócio e gere mais interesse.
+            </p>
 
-    <!-- MAIN CONTAINER -->
-    <main class="max-w-7xl mx-auto px-6 md:px-12 py-16 flex-1 z-10 w-full">
-
-        <!-- TAB 1: PORTFÓLIO PRINCIPAL -->
-        <div id="tab-portfolio" class="tab-content active">
-            
-            <!-- Hero Showreel Video Frame -->
-            <div class="glass-card rounded-3xl p-6 md:p-10 mb-16 relative overflow-hidden reveal-on-scroll">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    <div class="lg:col-span-5 flex flex-col justify-center">
-                        <span class="text-xs font-semibold tracking-[0.25em] text-gray-400 uppercase mb-3 flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-                            SHOWREEL 2026
-                        </span>
-                        <h2 class="font-display text-2xl md:text-4xl font-bold text-white mb-4 tracking-tight">Estética Visual & Ritmo</h2>
-                        <p class="text-gray-400 text-xs md:text-sm font-light leading-relaxed mb-8">
-                            Assista à nossa bobina de destaques: tomadas aéreas em 4K, fotometria de interiores e cortes dinâmicos criados para cativar o espectador nos primeiros segundos.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="https://wa.me/5584986448097?text=Olá!%20Gostaria%20de%20um%20orçamento%20audiovisual." target="_blank" class="inline-flex items-center gap-3 bg-white text-black hover:bg-gray-200 text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full transition-all">
-                                <i class="fab fa-whatsapp text-sm"></i> Solicitar Orçamento
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Video Embed Player -->
-                    <div class="lg:col-span-7">
-                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black group">
-                            <iframe 
-                                class="w-full h-full object-cover" 
-                                src="https://www.youtube-nocookie.com/embed/PWNALyjmpjs?autoplay=1&mute=1&loop=1&playlist=PWNALyjmpjs&controls=1&rel=0&modestbranding=1" 
-                                title="Jumper Video Showreel" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a
+                href="https://wa.me/5584986448097?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20meu%20projeto."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full bg-white px-7 py-4 text-[11px] font-bold uppercase tracking-[0.24em] text-black transition hover:bg-zinc-200"
+              >
+                Solicitar orçamento
+              </a>
+              <a
+                href="#portfolio"
+                class="rounded-full border border-white/20 bg-white/5 px-7 py-4 text-[11px] font-bold uppercase tracking-[0.24em] text-white transition hover:border-white hover:bg-white/10"
+              >
+                Ver portfólio
+              </a>
             </div>
 
-            <!-- Filter Header -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10 reveal-on-scroll border-b border-white/10 pb-6">
+            <div class="mt-12 flex flex-wrap gap-6 text-xs uppercase tracking-[0.2em] text-zinc-400">
+              <span>Drone 4K</span>
+              <span>Fotografia</span>
+              <span>Vídeo</span>
+              <span>Color grading</span>
+            </div>
+          </div>
+
+          <div class="glass rounded-[2rem] p-5 shadow-glow">
+            <div class="overflow-hidden rounded-[1.5rem] border border-white/10">
+              <img
+                src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80"
+                alt="Visão aérea de imóvel e ambiente"
+                class="h-[500px] w-full object-cover"
+              />
+            </div>
+            <div class="mt-4 flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+              <div>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-400">Especialidade</p>
+                <p class="mt-2 text-sm font-semibold text-white">Visual premium para negócios</p>
+              </div>
+              <div class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                disponível
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-y border-white/10 bg-black/50 py-5">
+        <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-4 px-6 text-center text-[10px] uppercase tracking-[0.35em] text-zinc-400 md:text-xs">
+          <span>Fotografia arquitetônica</span>
+          <span class="text-zinc-600">•</span>
+          <span>Drone</span>
+          <span class="text-zinc-600">•</span>
+          <span>Airbnb</span>
+          <span class="text-zinc-600">•</span>
+          <span>Turismo</span>
+          <span class="text-zinc-600">•</span>
+          <span>Marketing visual</span>
+        </div>
+      </section>
+
+      <section id="servicos" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 max-w-2xl">
+          <p class="section-title text-brand-500">Serviços</p>
+          <h2 class="mt-4 text-3xl font-black uppercase tracking-[-0.06em] text-white md:text-5xl">
+            Conteúdo visual pensado para conversão.
+          </h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <article class="glass group rounded-[2rem] p-6 transition hover:-translate-y-1 hover:border-white/15">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/10 text-xl text-brand-500">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Imobiliário</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-300">
+              Fotografia de interiores, fachadas e vídeos que destacam qualidade, valor e destaque do imóvel.
+            </p>
+            <ul class="mt-6 space-y-3 text-xs uppercase tracking-[0.15em] text-zinc-400">
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Fotos HDR</li>
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Tomadas aéreas</li>
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Vídeos para divulgação</li>
+            </ul>
+          </article>
+
+          <article class="glass group rounded-[2rem] p-6 transition hover:-translate-y-1 hover:border-white/15">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-400/10 text-xl text-emerald-400">
+              <i class="fa-solid fa-bed"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Pousadas & Airbnb</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-300">
+              Ambientes com cara de hospeda gem, com visual acolhedor e impactante para aumentar interesse e reservas.
+            </p>
+            <ul class="mt-6 space-y-3 text-xs uppercase tracking-[0.15em] text-zinc-400">
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Áreas externas</li>
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Detalhes e suítes</li>
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Reels e stories</li>
+            </ul>
+          </article>
+
+          <article class="glass group rounded-[2rem] p-6 transition hover:-translate-y-1 hover:border-white/15">
+            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-400/10 text-xl text-amber-400">
+              <i class="fa-solid fa-mountain-sun"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Turismo</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-300">
+              Produções para atrações, roteiros e experiências turísticas com visual forte, dinâmico e memorável.
+            </p>
+            <ul class="mt-6 space-y-3 text-xs uppercase tracking-[0.15em] text-zinc-400">
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Conteúdo para redes</li>
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Visual narrativo</li>
+              <li><i class="fa-solid fa-check mr-2 text-emerald-400"></i>Tomadas em movimento</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="portfolio" class="bg-zinc-950/80 py-20">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mb-12 max-w-2xl">
+            <p class="section-title text-brand-500">Portfolio</p>
+            <h2 class="mt-4 text-3xl font-black uppercase tracking-[-0.06em] text-white md:text-5xl">
+              Visual premium para quem quer ser percebido.
+            </h2>
+          </div>
+
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900">
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+                alt="Casa moderna com arquitetura elegante"
+                class="h-72 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-400">Imobiliário</p>
+                <h3 class="mt-3 text-xl font-bold text-white">Arquitetura e valor percebido</h3>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900">
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80"
+                alt="Pousada com vista e ambiente acolhedor"
+                class="h-72 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-400">Hospedagem</p>
+                <h3 class="mt-3 text-xl font-bold text-white">Acolhimento em destaque</h3>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900">
+              <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+                alt="Paisagem natural e tomada aérea"
+                class="h-72 w-full object-cover"
+              />
+              <div class="p-6">
+                <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-400">Turismo</p>
+                <h3 class="mt-3 text-xl font-bold text-white">Experiências que despertam desejo</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p class="section-title text-brand-500">Sobre</p>
+            <h2 class="mt-4 text-3xl font-black uppercase tracking-[-0.06em] text-white md:text-5xl">
+              Produção visual com foco em percepção e resultado.
+            </h2>
+
+            <div class="mt-8 space-y-6 text-base leading-8 text-zinc-300">
+              <p>
+                O JUMPER trabalha com a criação de imagens e vídeos que ajudam negócios a se apresentarem melhor,
+                destacarem pontos fortes e gerar mais interesse por parte do público.
+              </p>
+              <p>
+                A proposta é simples: transformar espaços, experiências e marcas em conteúdo visual com alto padrão,
+                autenticidade e técnica profissional.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass rounded-[2rem] p-7">
+            <p class="section-title text-zinc-400">Competências</p>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">01</p>
+                <p class="mt-3 text-base font-semibold text-white">Fotografia de interiores</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">02</p>
+                <p class="mt-3 text-base font-semibold text-white">Drone 4K</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">03</p>
+                <p class="mt-3 text-base font-semibold text-white">Edição cinematográfica</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p class="text-xs uppercase tracking-[0.2em] text-zinc-400">04</p>
+                <p class="mt-3 text-base font-semibold text-white">Conteúdo para redes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-zinc-950/80 py-20">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="mb-12 max-w-2xl">
+            <p class="section-title text-brand-500">Processo</p>
+            <h2 class="mt-4 text-3xl font-black uppercase tracking-[-0.06em] text-white md:text-5xl">
+              Como funciona a produção.
+            </h2>
+          </div>
+
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="glass rounded-[2rem] p-6">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/10 text-lg font-bold text-brand-500">1</div>
+              <h3 class="text-xl font-bold text-white">Diagnóstico</h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-300">
+                Entendemos o objetivo, o público e o que precisa ser destacado na apresentação visual.
+              </p>
+            </div>
+
+            <div class="glass rounded-[2rem] p-6">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/10 text-lg font-bold text-brand-500">2</div>
+              <h3 class="text-xl font-bold text-white">Captação</h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-300">
+                Registro com cuidado técnico, composição visual e atenção aos detalhes que entregam valor ao projeto.
+              </p>
+            </div>
+
+            <div class="glass rounded-[2rem] p-6">
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/10 text-lg font-bold text-brand-500">3</div>
+              <h3 class="text-xl font-bold text-white">Entrega</h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-300">
+                O material final é entregue com acabamento profissional, pronto para uso em anúncios, redes e apresentação.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 max-w-2xl">
+          <p class="section-title text-brand-500">Diferencial</p>
+          <h2 class="mt-4 text-3xl font-black uppercase tracking-[-0.06em] text-white md:text-5xl">
+            Sua marca precisa parecer valiosa antes mesmo de ser vista.
+          </h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6">
+            <i class="fa-solid fa-camera-retro mb-5 text-2xl text-brand-500"></i>
+            <h3 class="text-xl font-bold text-white">Estética premium</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-300">
+              Visual bem construído transmit e mais profissionalismo e aumenta a percepção de valor do negócio.
+            </p>
+          </div>
+
+          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6">
+            <i class="fa-solid fa-bolt mb-5 text-2xl text-brand-500"></i>
+            <h3 class="text-xl font-bold text-white">Conteúdo que chama atenção</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-300">
+              O foco é atrair o olhar certo nos primeiros segundos e manter o interesse do público.
+            </p>
+          </div>
+
+          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6">
+            <i class="fa-solid fa-rocket mb-5 text-2xl text-brand-500"></i>
+            <h3 class="text-xl font-bold text-white">Decisão mais rápida</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-300">
+              Conteúdo visual melhorado facilita a decisão de compra, reserva ou contato com o cliente.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="bg-zinc-950/80 py-20">
+        <div class="mx-auto max-w-5xl rounded-[2rem] border border-white/10 bg-white/5 p-8 md:p-12">
+          <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+            <div>
+              <p class="section-title text-brand-500">Contato</p>
+              <h2 class="mt-4 text-3xl font-black uppercase tracking-[-0.06em] text-white md:text-5xl">
+                Vamos transformar seu espaço em conteúdo de alto impacto.
+              </h2>
+              <p class="mt-6 max-w-xl text-base leading-8 text-zinc-300">
+                Se você quer mais destaque, mais valorização visual e uma apresentação profissional do seu negócio,
+                fale comigo para entender sua necessidade e receber um orçamento personalizado.
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <a
+                href="https://wa.me/5584986448097?text=Olá!%20Gostaria%20de%20um%20orçamento%20personalizado."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-900 p-5 transition hover:border-white/20"
+              >
                 <div>
-                    <h3 class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">SELEÇÃO DE PROJETOS</h3>
-                    <p class="font-display text-xl font-bold text-white mt-1">Nossos Nichos de Atuação</p>
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-400">WhatsApp</p>
+                  <p class="mt-2 text-base font-semibold text-white">+55 (84) 98644-8097</p>
                 </div>
-                
-                <!-- Category Buttons Filter -->
-                <div class="flex flex-wrap gap-2">
-                    <button onclick="filterCategory('all', event)" class="filter-btn active text-xs font-medium px-4 py-2 rounded-full border border-white/20 text-gray-300 transition-all">Todos</button>
-                    <button onclick="filterCategory('imobiliario', event)" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/20 text-gray-300 transition-all">Imobiliário</button>
-                    <button onclick="filterCategory('turismo', event)" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/20 text-gray-300 transition-all">Turismo</button>
-                    <button onclick="filterCategory('hospedagem', event)" class="filter-btn text-xs font-medium px-4 py-2 rounded-full border border-white/20 text-gray-300 transition-all">Airbnb & Pousadas</button>
+                <i class="fa-brands fa-whatsapp text-2xl text-emerald-400"></i>
+              </a>
+
+              <a
+                href="mailto:contato.jumperhub@gmail.com"
+                class="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-900 p-5 transition hover:border-white/20"
+              >
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-400">E-mail</p>
+                  <p class="mt-2 text-base font-semibold text-white">contato.jumperhub@gmail.com</p>
                 </div>
+                <i class="fa-solid fa-envelope text-2xl text-brand-500"></i>
+              </a>
             </div>
-
-            <!-- Portfolio Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- CARD 1: IMOBILIÁRIO -->
-                <div class="portfolio-item glass-card rounded-2xl overflow-hidden group flex flex-col cursor-pointer reveal-on-scroll" data-category="imobiliario">
-                    <div class="relative h-64 overflow-hidden bg-zinc-900">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" alt="Imobiliário" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-[10px] uppercase font-semibold tracking-widest text-white px-3 py-1 rounded-full border border-white/10">
-                            Imobiliário & Arquitetura
-                        </span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-display font-bold text-white text-lg mb-2 group-hover:text-gray-300 transition-colors">Residencial & Fotografia de Interiores</h4>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">Equilíbrio de luz interna e externa, tratamento HDR e takes de drone para condomínios.</p>
-                        </div>
-                        <div class="flex gap-2">
-                            <button onclick="switchTab('imobiliario')" class="flex-1 py-3 rounded-full border border-white/20 hover:border-white text-xs font-semibold uppercase tracking-wider text-center text-white transition-all">
-                                Explorar Categoria <i class="fas fa-arrow-right text-[10px] ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 2: TURISMO -->
-                <div class="portfolio-item glass-card rounded-2xl overflow-hidden group flex flex-col cursor-pointer reveal-on-scroll" data-category="turismo">
-                    <div class="relative h-64 overflow-hidden bg-zinc-900">
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Turismo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-[10px] uppercase font-semibold tracking-widest text-white px-3 py-1 rounded-full border border-white/10">
-                            Turismo & Experiências
-                        </span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-display font-bold text-white text-lg mb-2 group-hover:text-gray-300 transition-colors">Passeios & Experiências Regionais</h4>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">Captação em movimento, cortes ágeis para redes sociais e fidelidade nas cores naturais.</p>
-                        </div>
-                        <div class="flex gap-2">
-                            <button onclick="switchTab('turismo')" class="flex-1 py-3 rounded-full border border-white/20 hover:border-white text-xs font-semibold uppercase tracking-wider text-center text-white transition-all">
-                                Explorar Categoria <i class="fas fa-arrow-right text-[10px] ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 3: HOSPEDAGEM -->
-                <div class="portfolio-item glass-card rounded-2xl overflow-hidden group flex flex-col cursor-pointer reveal-on-scroll" data-category="hospedagem">
-                    <div class="relative h-64 overflow-hidden bg-zinc-900">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" alt="Hospedagens" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-[10px] uppercase font-semibold tracking-widest text-white px-3 py-1 rounded-full border border-white/10">
-                            Pousadas & Airbnb
-                        </span>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-display font-bold text-white text-lg mb-2 group-hover:text-gray-300 transition-colors">Acomodações & Estilo de Vida</h4>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">Fotografia aconchegante dos cômodos e vídeos promocionais para elevar o valor da diária.</p>
-                        </div>
-                        <div class="flex gap-2">
-                            <button onclick="switchTab('hospedagem')" class="flex-1 py-3 rounded-full border border-white/20 hover:border-white text-xs font-semibold uppercase tracking-wider text-center text-white transition-all">
-                                Explorar Categoria <i class="fas fa-arrow-right text-[10px] ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+          </div>
         </div>
-
-        <!-- SUBPÁGINA 1: IMOBILIÁRIO -->
-        <div id="tab-imobiliario" class="tab-content">
-            <button onclick="switchTab('portfolio')" class="mb-8 px-5 py-2.5 border border-white/20 hover:border-white rounded-full text-xs font-semibold uppercase tracking-widest text-gray-300 hover:text-white transition-all flex items-center gap-2">
-                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
-            </button>
-
-            <div class="glass-card rounded-3xl p-8 md:p-12">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-gray-400 mb-2 block">Imobiliário & Arquitetura</span>
-                <h2 class="font-display text-3xl md:text-5xl font-bold text-white mb-6">Fotografia & Vídeo Imobiliário</h2>
-                <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-10 max-w-3xl">
-                    Imóveis com imagens de alto padrão aceleram o processo de venda. Executamos capturas com foco em amplitude, equilíbrio de exposição entre interior e exterior e tomadas aéreas com drone.
-                </p>
-
-                <div class="aspect-video w-full rounded-2xl overflow-hidden border border-white/10 relative shadow-2xl bg-black mb-10">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/PWNALyjmpjs" title="Vídeo Imobiliário" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-
-                <!-- Galeria de Fotos de Amostra - Imobiliário -->
-                <div class="mb-10">
-                    <h4 class="font-display text-white font-bold text-lg mb-4 flex items-center gap-2">
-                        <i class="fas fa-camera text-blue-500"></i> Amostras de Fotografia & Ângulos Imobiliários
-                    </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=600" alt="Fachada Imobiliária" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Fachada & Ângulo Aéreo</span>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=600" alt="Interior Iluminação HDR" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Fotometria Interna HDR</span>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=600" alt="Detalhes de Arquitetura" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Acabamentos & Amplitude</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <h4 class="font-display text-white font-bold text-lg">Precisa destacar seus lançamentos ou propriedades?</h4>
-                        <p class="text-gray-400 text-xs font-light mt-1">Solicite uma cotação personalizada para ensaio de fotos e vídeos.</p>
-                    </div>
-                    <a href="https://wa.me/5584986448097?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20fotografia%20e%20vídeo%20imobiliário." target="_blank" class="px-8 py-4 bg-white text-black hover:bg-gray-200 font-bold text-xs uppercase tracking-widest rounded-full transition-all whitespace-nowrap">
-                        <i class="fab fa-whatsapp text-sm mr-2"></i> Agendar Captação
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SUBPÁGINA 2: TURISMO -->
-        <div id="tab-turismo" class="tab-content">
-            <button onclick="switchTab('portfolio')" class="mb-8 px-5 py-2.5 border border-white/20 hover:border-white rounded-full text-xs font-semibold uppercase tracking-widest text-gray-300 hover:text-white transition-all flex items-center gap-2">
-                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
-            </button>
-
-            <div class="glass-card rounded-3xl p-8 md:p-12">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-gray-400 mb-2 block">Turismo & Experiências</span>
-                <h2 class="font-display text-3xl md:text-5xl font-bold text-white mb-6">Produções para Turismo e Passeios</h2>
-                <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-10 max-w-3xl">
-                    Vídeos dinâmicos e cores autênticas para agências, embarcações e passeios regionais. O objetivo é transmitir a experiência real do destino ao futuro viajante.
-                </p>
-
-                <div class="aspect-video w-full rounded-2xl overflow-hidden border border-white/10 relative shadow-2xl bg-black mb-10">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/PWNALyjmpjs" title="Vídeo Turismo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-
-                <!-- Galeria de Fotos de Amostra - Turismo -->
-                <div class="mb-10">
-                    <h4 class="font-display text-white font-bold text-lg mb-4 flex items-center gap-2">
-                        <i class="fas fa-sun text-amber-500"></i> Amostras Visuais de Passeios & Natureza
-                    </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600" alt="Praia e Litoral" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Litoral & Tomadas Aéreas</span>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600" alt="Passeio Náutico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Experiências Náuticas</span>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=600" alt="Aventura e Roteiros" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Ação & Movimento</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <h4 class="font-display text-white font-bold text-lg">Quer atrair mais turistas para seus roteiros?</h4>
-                        <p class="text-gray-400 text-xs font-light mt-1">Desenvolvemos o acervo de fotos e vídeos para suas redes sociais.</p>
-                    </div>
-                    <a href="https://wa.me/5584986448097?text=Olá!%20Tenho%20uma%20empresa/serviço%20de%20turismo%20e%20quero%20vídeos%20promocionais." target="_blank" class="px-8 py-4 bg-white text-black hover:bg-gray-200 font-bold text-xs uppercase tracking-widest rounded-full transition-all whitespace-nowrap">
-                        <i class="fab fa-whatsapp text-sm mr-2"></i> Orçamento Turismo
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- SUBPÁGINA 3: HOSPEDAGEM & AIRBNB -->
-        <div id="tab-hospedagem" class="tab-content">
-            <button onclick="switchTab('portfolio')" class="mb-8 px-5 py-2.5 border border-white/20 hover:border-white rounded-full text-xs font-semibold uppercase tracking-widest text-gray-300 hover:text-white transition-all flex items-center gap-2">
-                <i class="fas fa-arrow-left"></i> Voltar ao Portfólio
-            </button>
-
-            <div class="glass-card rounded-3xl p-8 md:p-12">
-                <span class="text-xs font-semibold uppercase tracking-[0.25em] text-gray-400 mb-2 block">Hospedagens & Airbnb</span>
-                <h2 class="font-display text-3xl md:text-5xl font-bold text-white mb-6">Fotografia de Pousadas e Hostels</h2>
-                <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-10 max-w-3xl">
-                    Apresentação estética de suítes, áreas de convivência e arredores. Fotos bem tratadas aumentam o valor percebido das acomodações no Airbnb e plataformas de reserva.
-                </p>
-
-                <div class="aspect-video w-full rounded-2xl overflow-hidden border border-white/10 relative shadow-2xl bg-black mb-10">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/PWNALyjmpjs" title="Vídeo Hospedagens" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-
-                <!-- Galeria de Fotos de Amostra - Hospedagens -->
-                <div class="mb-10">
-                    <h4 class="font-display text-white font-bold text-lg mb-4 flex items-center gap-2">
-                        <i class="fas fa-bed text-emerald-400"></i> Amostras Visuais para Pousadas & Airbnb
-                    </h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Pousada Externa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Área Externa & Piscina</span>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=600" alt="Suíte Pousada" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Suítes & Aconchego</span>
-                            </div>
-                        </div>
-                        <div class="relative rounded-xl overflow-hidden border border-white/10 h-48 group">
-                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600" alt="Detalhes Airbnb" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-3 flex items-end">
-                                <span class="text-[11px] font-medium text-white">Detalhes do Acolhimento</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <h4 class="font-display text-white font-bold text-lg">Quer aumentar suas reservas diretas?</h4>
-                        <p class="text-gray-400 text-xs font-light mt-1">Pacotes sob medida de fotografia arquitetônica e Reels de apresentação.</p>
-                    </div>
-                    <a href="https://wa.me/5584986448097?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20foto%20e%20vídeo%20para%20minha%20pousada/Airbnb." target="_blank" class="px-8 py-4 bg-white text-black hover:bg-gray-200 font-bold text-xs uppercase tracking-widest rounded-full transition-all whitespace-nowrap">
-                        <i class="fab fa-whatsapp text-sm mr-2"></i> Orçamento Hospedagem
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 2: SERVIÇOS -->
-        <div id="tab-services" class="tab-content">
-            <div class="mb-12 reveal-on-scroll">
-                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400">PACOTES & SOLUÇÕES</span>
-                <h3 class="font-display text-3xl md:text-4xl font-bold text-white mt-1">Serviços Audiovisuais</h3>
-                <p class="text-gray-400 text-xs md:text-sm font-light mt-2 max-w-2xl">Visualize abaixo cada tipo de solução visual desenvolvida sob medida para o seu setor.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                
-                <!-- Serviço 1: Imobiliário -->
-                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between reveal-on-scroll border border-white/10 group">
-                    <div class="relative h-52 overflow-hidden bg-zinc-900">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" alt="Imobiliário Visual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
-                        <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-[10px] uppercase font-semibold tracking-widest text-white px-3 py-1 rounded-full border border-white/10">
-                            01 / ARQUITETURA
-                        </span>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-display text-xl font-bold text-white mb-3">Imobiliário & Arquitetura</h4>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">
-                                Fotografia de interiores com equilíbrio de iluminação natural, vídeos estabilizados e tomada de ângulo aéreo para encantar compradores.
-                            </p>
-                            
-                            <!-- Badges do Serviço -->
-                            <div class="flex flex-wrap gap-2 mb-6 text-[10px] font-medium text-gray-300">
-                                <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md"><i class="fas fa-check text-blue-400 mr-1"></i> Fotos HDR</span>
-                                <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md"><i class="fas fa-check text-blue-400 mr-1"></i> Takes 4K Drone</span>
-                                <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md"><i class="fas fa-check text-blue-400 mr-1"></i> Vídeo Horizontal & Vertical</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/5584986448097?text=Quero%20consultar%20valores%20para%20Vídeo/Foto%20Imobiliário" target="_blank" class="w-full py-3.5 border border-white/20 hover:border-white rounded-full text-xs font-semibold uppercase tracking-widest text-center text-white transition-all block">
-                            Consultar Projeto
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Serviço 2: Airbnb -->
-                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border-white/30 relative bg-white/[0.03] reveal-on-scroll group">
-                    <div class="relative h-52 overflow-hidden bg-zinc-900">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" alt="Hospedagens Visual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
-                        <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-[10px] uppercase font-semibold tracking-widest text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30">
-                            02 / ACOMODAÇÕES
-                        </span>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-display text-xl font-bold text-white mb-3">Pousadas & Airbnb</h4>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">
-                                Ensaio de ambientes internos, detalhes da hospedagem e vídeos promocionais direcionados ao público de viagens para aumentar o valor da diária.
-                            </p>
-
-                            <!-- Badges do Serviço -->
-                            <div class="flex flex-wrap gap-2 mb-6 text-[10px] font-medium text-gray-300">
-                                <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md"><i class="fas fa-check text-emerald-400 mr-1"></i> Galeria para Booking/Airbnb</span>
-                                <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md"><i class="fas fa-check text-emerald-400 mr-1"></i> Reels de Apresentação</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/5584986448097?text=Quero%20orçamento%20para%20fotos/vídeo%20do%20meu%20Airbnb%20ou%20Pousada" target="_blank" class="w-full py-3.5 bg-white text-black hover:bg-gray-200 rounded-full text-xs font-bold uppercase tracking-widest text-center transition-all block">
-                            Solicitar Cotação
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Serviço 3: Turismo -->
-                <div class="glass-card rounded-3xl overflow-hidden flex flex-col justify-between reveal-on-scroll border border-white/10 group">
-                    <div class="relative h-52 overflow-hidden bg-zinc-900">
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Turismo Visual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"></div>
-                        <span class="absolute top-4 left-4 bg-black/70 backdrop-blur-md text-[10px] uppercase font-semibold tracking-widest text-amber-400 px-3 py-1 rounded-full border border-amber-500/30">
-                            03 / EXPERIÊNCIAS
-                        </span>
-                    </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-display text-xl font-bold text-white mb-3">Turismo & Atrações</h4>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">
-                                Registro de passeios, ações ao ar livre e recortes dinâmicos de alta retenção visual para atração direta de turistas nas redes sociais.
-                            </p>
-
-                            <!-- Badges do Serviço -->
-                            <div class="flex flex-wrap gap-2 mb-6 text-[10px] font-medium text-gray-300">
-                                <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md"><i class="fas fa-check text-amber-400 mr-1"></i> Retenção para Instagram/TikTok</span>
-                                <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md"><i class="fas fa-check text-amber-400 mr-1"></i> Ação & Drone ao Ar Livre</span>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/5584986448097?text=Quero%20orçamento%20para%20vídeo%20de%20Turismo/Passeios" target="_blank" class="w-full py-3.5 border border-white/20 hover:border-white rounded-full text-xs font-semibold uppercase tracking-widest text-center text-white transition-all block">
-                            Consultar Projeto
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Seção Visual Extra em Serviços: Entregáveis do Projeto -->
-            <div class="glass-card rounded-3xl p-8 md:p-12 reveal-on-scroll border border-white/10">
-                <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-2 block">PADRÃO TÉCNICO DE ENTREGA</span>
-                <h3 class="font-display text-2xl md:text-3xl font-bold text-white mb-8">O Que Você Recebe em Cada Produção</h3>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fas fa-plane font-black"></i>
-                            </div>
-                            <h5 class="font-display font-bold text-white text-base mb-2">Tomadas Aéreas em 4K</h5>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed">Vídeos e fotos panorâmicas do local, destacando vizinhança, mar e dimensão total.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fas fa-adjust"></i>
-                            </div>
-                            <h5 class="font-display font-bold text-white text-base mb-2">Tratamento de Luz & HDR</h5>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed">Equilíbrio perfeito da luz interior sem estouro de luz nas janelas e paisagens externas.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h5 class="font-display font-bold text-white text-base mb-2">Formatos Otimizados</h5>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed">Vídeos verticais 9:16 prontos para Reels/TikTok e horizontais 16:9 para sites e YouTube.</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/5 flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg mb-4">
-                                <i class="fas fa-palette"></i>
-                            </div>
-                            <h5 class="font-display font-bold text-white text-base mb-2">Color Grading Profissional</h5>
-                            <p class="text-gray-400 text-xs font-light leading-relaxed">Tratamento de cores em DaVinci Resolve para um acabamento vívido, fiel e cinematográfico.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 3: SOBRE MIM -->
-        <div id="tab-about" class="tab-content">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
-                
-                <div class="md:col-span-8 glass-card rounded-3xl p-8 md:p-12 reveal-on-scroll">
-                    <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-2 block">BIOGRAFIA</span>
-                    <h3 class="font-display text-3xl font-bold text-white mb-6">Jumper Visuals</h3>
-                    <div class="space-y-4 text-gray-300 text-sm font-light leading-relaxed mb-8">
-                        <p>
-                            Especialista na criação de acervos visuais para negócios onde a estética visual dita a decisão de compra: <strong class="text-white font-medium">Imobiliárias, Pousadas/Airbnb e Turismo</strong>.
-                        </p>
-                        <p>
-                            Combino fotografia arquitetônica com tomadas de drone em 4K e pós-produção em DaVinci Resolve para entregar imagens com padrão cinematográfico e cores fieis à realidade.
-                        </p>
-                    </div>
-
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Competências Técnicas</h4>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl text-center">
-                            <span class="text-xs font-medium text-white block">Fotografia de Interiores</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl text-center">
-                            <span class="text-xs font-medium text-white block">Piloto de Drone 4K</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl text-center">
-                            <span class="text-xs font-medium text-white block">Color Grading Fiel</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl text-center">
-                            <span class="text-xs font-medium text-white block">Edição para Social Media</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl text-center">
-                            <span class="text-xs font-medium text-white block">DaVinci Resolve / Premiere</span>
-                        </div>
-                        <div class="bg-white/5 border border-white/5 p-4 rounded-xl text-center">
-                            <span class="text-xs font-medium text-white block">Entrega Ágil</span>
-                        </div>
-                    </div>
-
-                    <!-- Galeria Visual Bastidores & Equipamentos -->
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">Bastidores & Captação em Ação</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="relative rounded-2xl overflow-hidden border border-white/10 h-40">
-                            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=600" alt="Drone em Ação" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black/40 p-4 flex items-end">
-                                <span class="text-xs font-medium text-white"><i class="fas fa-drone mr-1 text-blue-400"></i> Drones & Equipamentos Certificados</span>
-                            </div>
-                        </div>
-                        <div class="relative rounded-2xl overflow-hidden border border-white/10 h-40">
-                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=600" alt="Edição e Color Grading" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black/40 p-4 flex items-end">
-                                <span class="text-xs font-medium text-white"><i class="fas fa-desktop mr-1 text-purple-400"></i> Edição & Color Grading Dedicado</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="md:col-span-4 glass-card rounded-3xl p-8 flex flex-col justify-between reveal-on-scroll">
-                    <div>
-                        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-400 mb-2 block">CONTATO DIRETO</span>
-                        <h4 class="font-display text-xl font-bold text-white mb-4">Iniciar Conversa</h4>
-                        <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">
-                            Tem uma ideia ou demanda de produção audiovisual? Vamos conversar sobre o seu projeto.
-                        </p>
-                        
-                        <!-- Mini Preview Image para o card de contato -->
-                        <div class="relative rounded-2xl overflow-hidden border border-white/10 h-36 mb-8">
-                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Jumper Visuals" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                        </div>
-                    </div>
-
-                    <a href="https://wa.me/5584986448097" target="_blank" class="w-full py-4 rounded-full bg-white text-black hover:bg-gray-200 font-bold text-xs uppercase tracking-widest text-center transition-all block">
-                        Enviar mensagem no WhatsApp
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- TAB 4: CONTATO -->
-        <div id="tab-contact" class="tab-content">
-            <div class="max-w-3xl mx-auto glass-card rounded-3xl overflow-hidden reveal-on-scroll">
-                
-                <!-- Hero Header Visual no Contato -->
-                <div class="relative h-48 sm:h-64 w-full overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200" alt="Contato Header Visual" class="w-full h-full object-cover filter brightness-75">
-                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent p-8 flex flex-col justify-end">
-                        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-gray-300 mb-1">AGENDAMENTO & DÚVIDAS</span>
-                        <h3 class="font-display text-2xl md:text-4xl font-bold text-white">Pronto para Elevar seu Conteúdo Visual?</h3>
-                    </div>
-                </div>
-
-                <div class="p-8 md:p-12 text-center">
-                    <p class="text-gray-300 text-xs md:text-sm font-light leading-relaxed mb-8 max-w-xl mx-auto">
-                        Fale diretamente comigo para orçamentos, disponibilidade de datas ou planejamento de captação de imagem para o seu imóvel, pousada ou passeio.
-                    </p>
-
-                    <div class="space-y-4">
-                        <a href="https://wa.me/5584986448097?text=Olá!%20Encontrei%20seu%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-white text-white font-light text-sm flex items-center justify-between transition-all group">
-                            <div class="flex items-center gap-4">
-                                <i class="fab fa-whatsapp text-xl text-emerald-400"></i>
-                                <div class="text-left">
-                                    <span class="block text-white font-medium">WhatsApp Profissional</span>
-                                    <span class="text-xs text-gray-400">+55 (84) 98644-8097</span>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-right text-xs text-gray-400 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-
-                        <a href="mailto:contato.jumperhub@gmail.com" class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-white text-white font-light text-sm flex items-center justify-between transition-all group">
-                            <div class="flex items-center gap-4">
-                                <i class="fas fa-envelope text-xl text-blue-400"></i>
-                                <div class="text-left">
-                                    <span class="block text-white font-medium">E-mail Profissional</span>
-                                    <span class="text-xs text-gray-400">contato.jumperhub@gmail.com</span>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-right text-xs text-gray-400 group-hover:translate-x-1 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+      </section>
     </main>
 
-    <!-- Mobile Navigation Bar -->
-    <div class="fixed bottom-0 left-0 right-0 z-50 glass-panel md:hidden px-4 py-3 border-t border-white/10">
-        <div class="flex items-center justify-around max-w-sm mx-auto">
-            <button onclick="switchTab('portfolio')" id="mob-tab-portfolio" class="tab-btn-mob flex flex-col items-center gap-1 text-white">
-                <i class="fas fa-th-large text-base"></i>
-                <span class="text-[9px] font-semibold uppercase tracking-wider">Portfólio</span>
-            </button>
-            <button onclick="switchTab('services')" id="mob-tab-services" class="tab-btn-mob flex flex-col items-center gap-1 text-gray-500 hover:text-white">
-                <i class="fas fa-concierge-bell text-base"></i>
-                <span class="text-[9px] font-semibold uppercase tracking-wider">Serviços</span>
-            </button>
-            <button onclick="switchTab('about')" id="mob-tab-about" class="tab-btn-mob flex flex-col items-center gap-1 text-gray-500 hover:text-white">
-                <i class="fas fa-camera text-base"></i>
-                <span class="text-[9px] font-semibold uppercase tracking-wider">Sobre</span>
-            </button>
-            <button onclick="switchTab('contact')" id="mob-tab-contact" class="tab-btn-mob flex flex-col items-center gap-1 text-gray-500 hover:text-white">
-                <i class="fas fa-paper-plane text-base"></i>
-                <span class="text-[9px] font-semibold uppercase tracking-wider">Contato</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- Minimalist Footer -->
-    <footer class="py-8 border-t border-white/10 text-center text-xs text-gray-500 font-light z-10 mb-16 md:mb-0">
-        <p>JUMPER © 2026 • Visual Producer & Drone Pilot</p>
+    <footer class="border-t border-white/10 bg-black/40 py-8">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-center text-xs uppercase tracking-[0.18em] text-zinc-500 md:flex-row md:text-left lg:px-8">
+        <p>JUMPER © 2026</p>
+        <p>Visual Producer & Drone Specialist</p>
+      </div>
     </footer>
-
-    <!-- Logic Script -->
-    <script>
-        // Scroll Reveal Observer
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        revealElements.forEach(el => observer.observe(el));
-
-        // Tab Switching Logic
-        function switchTab(tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
-
-            const activeTab = document.getElementById('tab-' + tabId);
-            if (activeTab) {
-                activeTab.classList.add('active');
-            }
-
-            // Desktop Nav Highlight
-            const deskButtons = document.querySelectorAll('.tab-btn');
-            deskButtons.forEach(btn => {
-                btn.classList.remove('text-white', 'font-semibold');
-                btn.classList.add('text-gray-400');
-            });
-
-            const activeDeskBtn = document.getElementById('desk-tab-' + tabId);
-            if (activeDeskBtn) {
-                activeDeskBtn.classList.remove('text-gray-400');
-                activeDeskBtn.classList.add('text-white', 'font-semibold');
-            }
-
-            // Mobile Nav Highlight
-            const mobButtons = document.querySelectorAll('.tab-btn-mob');
-            mobButtons.forEach(btn => {
-                btn.classList.remove('text-white');
-                btn.classList.add('text-gray-500');
-            });
-
-            const activeMobBtn = document.getElementById('mob-tab-' + tabId);
-            if (activeMobBtn) {
-                activeMobBtn.classList.remove('text-gray-500');
-                activeMobBtn.classList.add('text-white');
-            }
-
-            window.scrollTo({
-                top: window.innerHeight * 0.75,
-                behavior: 'smooth'
-            });
-        }
-
-        // Category Filter
-        function filterCategory(category, evt) {
-            const items = document.querySelectorAll('.portfolio-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if (evt && evt.target) {
-                evt.target.classList.add('active');
-            }
-
-            items.forEach(item => {
-                const itemCat = item.getAttribute('data-category');
-                if (category === 'all' || itemCat === category) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
+  </body>
 </html>
